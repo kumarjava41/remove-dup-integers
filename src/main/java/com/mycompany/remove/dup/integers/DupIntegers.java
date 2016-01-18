@@ -40,12 +40,19 @@ public class DupIntegers {
     }
 
     public int[] remDuplicatesSet() {
+        // add the ints into a set as no duplicates are allowed and 
+        // linked hashset is used to maintain order
         Set<Integer> setString = new LinkedHashSet<>();
+        //Iterate each element in an array of Integers
         for (Integer i : randomIntegers) {
             setString.add(i);
         }
+        //initilalize an result array with size equal to 
+        //the size of thee set from the above operation
         int[] result = new int[setString.size()];
         int i = 0;
+        //Iterate through the set elements and add each element
+        //to the result array
         for (Integer number : setString) {
             result[i++] = number;
         }
@@ -78,15 +85,20 @@ public class DupIntegers {
         if (randomIntegers == null || randomIntegers.length == 1) {
             return randomIntegers;
         }
+        //Sort input array by its natural order
         Arrays.sort(randomIntegers);
         int count = 1;
+        //Loop through the array elements and get the distinct element count
         for (int i = 1; i < randomIntegers.length; i++) {
             if (randomIntegers[i] != randomIntegers[i - 1]) {
                 count++;
             }
         }
+        //Initialize an result array with the size from earlier operation
         int[] result = new int[count];
         result[0] = randomIntegers[0];
+        //Loop through the input array and add distinct elements to the result array
+        //This will not maintain order as sort operation is involved.
         for (int i = 1, n = 1; i < randomIntegers.length; i++) {
             if (randomIntegers[i] != randomIntegers[i - 1]) {
                 result[n++] = randomIntegers[i];

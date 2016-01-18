@@ -40,7 +40,6 @@ public class DupIntegers {
     }
 
     public int[] remDuplicatesSet() {
-        long startTime1 = System.currentTimeMillis();
         Set<Integer> setString = new LinkedHashSet<>();
         for (Integer i : randomIntegers) {
             setString.add(i);
@@ -50,13 +49,10 @@ public class DupIntegers {
         for (Integer number : setString) {
             result[i++] = number;
         }
-        long startTime2 = System.currentTimeMillis();
-        System.out.println("result of set1:" + (startTime2 - startTime1));
         return result;
     }
 
     public int[] remDuplicatesMap() {
-        long startTime1 = System.currentTimeMillis();
         Map<Integer, Integer> numAndCount = new LinkedHashMap<>();
         // build hash table with count
         for (Integer number : randomIntegers) {
@@ -75,13 +71,10 @@ public class DupIntegers {
             result[count] = entry.getKey();
             count++;
         }
-        long startTime2 = System.currentTimeMillis();
-        System.out.println("result of set:" + (startTime2 - startTime1));
         return result;
     }
 
     public int[] remDuplicatesSort() {
-        long startTime3 = System.currentTimeMillis();
         if (randomIntegers == null || randomIntegers.length == 1) {
             return randomIntegers;
         }
@@ -99,8 +92,6 @@ public class DupIntegers {
                 result[n++] = randomIntegers[i];
             }
         }
-        long startTime4 = System.currentTimeMillis();
-        System.out.println("result of set:" + (startTime4 - startTime3));
         return result;
     }
 
